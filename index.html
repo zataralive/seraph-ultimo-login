@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seraph: The Last Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --neon-cyan: #00e5ff;
+        --glass-bg: rgba(225, 245, 254, 0.7); /* Light sky blue glass */
+        --glass-border: rgba(180, 220, 250, 0.5);
+        --text-primary: #075985; /* Darker Sky Blue */
+        --text-secondary: #0ea5e9; /* Sky Blue 500 */
+        --accent-bg: #0ea5e9;
+        --accent-hover-bg: #0284c7;
+      }
+      html, body { 
+        @apply overflow-x-hidden overflow-y-hidden; /* Ensure no page scrollbars */
+      }
+      body {
+        @apply bg-gradient-to-br from-sky-100 to-cyan-100 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center min-h-screen antialiased font-sans;
+        font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      }
+    }
+    @layer utilities {
+      .frutiger-glass {
+        @apply bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg rounded-2xl shadow-xl border border-white/30 dark:border-slate-700/40;
+        /* More pronounced glass effect */
+      }
+      .frutiger-button {
+        @apply bg-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-75 text-base;
+        /* Slightly larger, more defined buttons */
+      }
+      .frutiger-button-neon {
+        @apply border-2 border-[var(--neon-cyan)] bg-transparent text-[var(--neon-cyan)] font-semibold py-2 px-5 rounded-lg shadow-[0_0_10px_var(--neon-cyan),inset_0_0_5px_var(--neon-cyan)] hover:bg-[var(--neon-cyan)] hover:text-white hover:shadow-[0_0_15px_var(--neon-cyan),inset_0_0_10px_var(--neon-cyan)] transition-all duration-200 ease-in-out transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-[var(--neon-cyan)] focus:ring-opacity-75;
+      }
+      .text-neon-cyan {
+        color: var(--neon-cyan);
+        text-shadow: 0 0 3px var(--neon-cyan), 0 0 5px rgba(0, 229, 255, 0.7);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        @apply w-2.5;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-sky-50 dark:bg-slate-700 rounded-full;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-sky-300 dark:bg-sky-500 rounded-full border-2 border-sky-50 dark:border-slate-700 hover:bg-sky-400 dark:hover:bg-sky-600;
+      }
+      .custom-scrollbar-dark::-webkit-scrollbar { 
+        @apply w-2; 
+      }
+      .custom-scrollbar-dark::-webkit-scrollbar-track { 
+        @apply bg-slate-700/50 rounded-md; 
+      }
+      .custom-scrollbar-dark::-webkit-scrollbar-thumb { 
+        @apply bg-sky-400/50 hover:bg-sky-400/80 rounded-md; 
+      }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "next/": "https://esm.sh/next@^15.3.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.7.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
